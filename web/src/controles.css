@@ -1,0 +1,483 @@
+:root {
+  --barra-desplazamiento: color-mix(in srgb, var(--secundario) 34%, transparent);
+  --barra-desplazamiento-activa: color-mix(in srgb, var(--secundario) 64%, transparent);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--barra-desplazamiento) transparent;
+}
+
+@supports selector(::-webkit-scrollbar) {
+
+  *,
+  .barra-lateral nav {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--barra-desplazamiento);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+  min-height: 32px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--barra-desplazamiento-activa);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.tabla-contenedor {
+  overscroll-behavior-x: contain;
+  padding-bottom: 4px;
+}
+
+.dialogo:not(.expediente) {
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+.panel-flotante {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  box-sizing: border-box;
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.panel-flotante::backdrop {
+  background: transparent;
+}
+
+.selector-filtro .selector-filtro-control,
+.selector-fecha .selector-fecha-control {
+  min-height: 44px;
+  padding: 11px 16px;
+  gap: 12px;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.filtros .selector-filtro .selector-filtro-control {
+  border-radius: 999px;
+}
+
+.selector-filtro-control>span,
+.selector-fecha-control>span {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.selector-filtro-control>svg,
+.selector-fecha-control>svg {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.selector-filtro-lista {
+  padding: 6px;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px #00000026;
+}
+
+.selector-filtro-lista [role="option"] {
+  min-height: 44px;
+  padding: 10px 12px;
+  gap: 12px;
+  line-height: 1.45;
+  border-radius: 11px;
+}
+
+.selector-filtro-lista [role="option"]>span {
+  flex: 1;
+  min-width: 0;
+}
+
+.selector-filtro-lista [role="option"]>svg {
+  flex: 0 0 16px;
+}
+
+.selector-filtro-lista.lista-compacta [role="option"] {
+  justify-content: space-between;
+  padding-inline: 8px;
+  gap: 6px;
+}
+
+.selector-hora .selector-filtro-control>span {
+  text-align: center;
+}
+
+.selector-hora .selector-filtro-control>svg {
+  display: none;
+}
+
+.filtro-etiquetado {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.filtro-etiquetado>span {
+  font-size: .8125rem;
+}
+
+.selector-fecha {
+  min-width: 0;
+}
+
+.fecha-sin-etiqueta {
+  width: 100%;
+}
+
+.selector-fecha-control[aria-invalid="true"] {
+  border-color: var(--alerta);
+}
+
+.calendario-fecha {
+  padding: 16px;
+  border-radius: 22px;
+  background: var(--superficie-elevada);
+}
+
+.calendario-fecha header {
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.calendario-fecha .icono-boton {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 12px;
+}
+
+.calendario-fecha .mes-fecha {
+  min-height: 44px;
+  padding: 10px 8px;
+  font-weight: 600;
+}
+
+.dias-fecha,
+.rejilla-fecha {
+  gap: 2px;
+}
+
+.dias-fecha span {
+  padding-block: 8px;
+  font-size: .6875rem;
+}
+
+.calendario-fecha .rejilla-fecha button {
+  min-width: 0;
+  min-height: 42px;
+  border-radius: 12px;
+  font-size: .8125rem;
+}
+
+.calendario-fecha footer {
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid var(--linea);
+  gap: 12px;
+}
+
+.calendario-fecha footer button {
+  min-height: 44px;
+  padding-inline: 14px;
+}
+
+.calendario-fecha .meses-fecha {
+  gap: 8px;
+}
+
+.calendario-fecha .meses-fecha button {
+  min-height: 44px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.calendario-fecha button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.calendario-fecha .ano-fecha input {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.selector-mes-calendario {
+  padding: 0;
+  min-width: 0;
+}
+
+.selector-mes-calendario .selector-fecha-control {
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  font-weight: 600;
+  width: auto;
+  min-width: 0;
+}
+
+.selector-mes-calendario .selector-fecha-control>span {
+  text-transform: none;
+}
+
+.selector-mes-calendario .selector-fecha-control>span::first-letter {
+  text-transform: uppercase;
+}
+
+.control-cuenta {
+  min-height: 44px;
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.control-cuenta>svg {
+  flex: 0 0 auto;
+}
+
+.control-cuenta[aria-expanded="true"]>svg {
+  transform: rotate(180deg);
+}
+
+.panel-cuenta {
+  padding: 10px;
+  border: 1px solid var(--borde-control);
+  border-radius: 20px;
+  background: var(--superficie-elevada);
+  color: var(--texto);
+  box-shadow: 0 14px 40px #00000026;
+}
+
+.panel-cuenta>strong {
+  display: block;
+  font-size: .875rem;
+  padding: 10px;
+  overflow-wrap: anywhere;
+}
+
+.panel-cuenta>a,
+.panel-cuenta>button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 12px;
+  min-height: 44px;
+  border-radius: 12px;
+  font-size: .875rem;
+}
+
+.panel-cuenta>a {
+  color: var(--acento-texto);
+}
+
+.panel-cuenta>a:hover {
+  background: var(--suave);
+}
+
+.panel-cuenta>a.acceso-cuenta-carne {
+  gap: 10px;
+  background: var(--suave);
+  font-weight: 650;
+}
+
+.panel-cuenta>a.acceso-cuenta-carne:hover {
+  background: color-mix(in srgb, var(--suave) 82%, var(--acento));
+}
+
+.campo-clave input {
+  width: 100%;
+  padding-right: 100px;
+}
+
+.campo-clave button {
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  min-height: 44px;
+  padding-inline: 12px;
+}
+
+.panel-cuenta .instalar-aplicacion>div {
+  position: static;
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+button>svg,
+summary>svg {
+  flex-shrink: 0;
+}
+
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--acento-texto);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .periodo {
+    gap: 12px;
+  }
+
+  .periodo>.selector-fecha {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
+
+  .calendario-fecha {
+    padding: 12px;
+  }
+
+  .selector-fecha .selector-fecha-control {
+    padding: 10px 12px;
+  }
+
+  .filtro-etiquetado {
+    flex: 1 1 160px;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selector-filtro-control>svg {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  * {
+    scrollbar-color: auto;
+  }
+
+  .panel-flotante {
+    border: 1px solid CanvasText;
+  }
+
+  .calendario-fecha .rejilla-fecha button[aria-pressed="true"],
+  .selector-filtro-lista [aria-selected="true"] {
+    outline: 2px solid Highlight;
+  }
+}
+
+@media print {
+  .panel-flotante {
+    display: none !important;
+  }
+
+  body:has(dialog[open]) {
+    overflow: visible;
+  }
+}
+
+.calendario-fecha header {
+  position: sticky;
+  top: -16px;
+  z-index: 1;
+  background: inherit;
+}
+
+.calendario-fecha footer {
+  position: sticky;
+  bottom: -16px;
+  background: inherit;
+}
+
+@media (max-width: 600px) {
+  .calendario-fecha header {
+    top: -12px;
+  }
+
+  .calendario-fecha footer {
+    bottom: -12px;
+  }
+}
+
+.panel-cuenta>p {
+  margin: 0 10px 8px;
+  color: var(--secundario);
+  font-size: .8125rem;
+}
+
+.filtros .selector-filtro-control>span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pestanas button[aria-selected='true']:hover:not(:disabled) {
+    background: var(--superficie-elevada);
+    color: var(--texto);
+  }
+
+  .navegacion-movil button[aria-current='page']:hover:not(:disabled),
+  .navegacion-personal a:hover {
+    background: var(--suave);
+    color: var(--acento-texto);
+  }
+
+  .calendario-fecha :is(.rejilla-fecha, .meses-fecha) button[aria-pressed='true']:hover:not(:disabled),
+  .periodos-reportes button[aria-pressed='true']:hover:not(:disabled) {
+    background: var(--acento);
+    color: var(--sobre-acento);
+    box-shadow: none;
+  }
+
+  .calendario-fecha .mes-fecha:hover:not(:disabled),
+  .selector-mes-calendario .selector-fecha-control:hover:not(:disabled) {
+    background: var(--suave);
+    color: var(--acento-texto);
+    box-shadow: none;
+  }
+
+  .dia-calendario:hover:not(:disabled),
+  .fecha-asistencia:hover:not(:disabled) {
+    box-shadow: inset 0 0 0 1px var(--acento-texto);
+  }
+}

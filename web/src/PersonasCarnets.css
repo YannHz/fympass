@@ -1,0 +1,31 @@
+.resumen-directorio { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 24px; }
+.resumen-directorio .tarjeta-rol { display: flex; align-items: center; gap: 14px; padding: 20px; text-align: left; border-radius: 24px; border: 1px solid var(--linea); background: var(--fondo-tarjeta); color: var(--secundario); box-shadow: none; }
+.tarjeta-rol svg { color: var(--acento-texto); flex-shrink: 0; }
+.tarjeta-rol span { font-size: .8125rem; }
+.tarjeta-rol strong { display: block; font-size: 1.875rem; font-weight: 650; color: var(--texto); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.resumen-directorio .tarjeta-rol[aria-pressed='true'] { border-color: color-mix(in srgb, var(--acento) 40%, var(--linea)); background: var(--suave); box-shadow: none; color: var(--texto); }
+.tarjeta-rol[aria-pressed='true'] strong { color: var(--texto); }
+.filtros-personas .buscador { flex: 1 1 260px; max-width: 430px; }
+.resultados-directorio { display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin-bottom: 12px; font-size: .8125rem; color: var(--secundario); gap: 12px; }
+.identidad-directorio { display: flex; gap: 12px; align-items: center; }
+.personas-carnets .identidad-directorio .avatar { width: 42px; height: 42px; min-width: 42px; margin: 0; border-radius: 14px; font-size: .875rem; background: var(--suave); color: var(--acento-texto); }
+.personas-carnets td small { display: block; margin-top: 5px; color: var(--secundario); }
+.rol-directorio { display: flex; gap: 8px; align-items: center; }
+.rol-directorio svg { flex-shrink: 0; color: var(--acento-texto); }
+@media(max-width: 1100px) { .resumen-directorio { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width: 650px) { .resumen-directorio .tarjeta-rol { padding: 16px 12px; gap: 9px; border-radius: 20px; } .filtros-personas .buscador { max-width: none; } .filtros-personas > .selector-filtro { flex: 1 1 100%; } }
+@media(forced-colors: active) { .resumen-directorio .tarjeta-rol[aria-pressed='true'] { outline: 2px solid Highlight; } }
+@media (hover: hover) {
+  .resumen-directorio .tarjeta-rol:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--acento) 9%, var(--superficie));
+    border-color: color-mix(in srgb, var(--acento) 45%, var(--linea));
+    color: var(--texto);
+    box-shadow: none;
+  }
+  .resumen-directorio .tarjeta-rol[aria-pressed='true']:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--acento) 14%, var(--superficie));
+    border-color: color-mix(in srgb, var(--acento) 60%, var(--linea));
+    color: var(--texto);
+    box-shadow: none;
+  }
+}

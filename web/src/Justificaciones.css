@@ -1,0 +1,159 @@
+.periodo-incidencias {
+    display: flex;
+    align-items: end;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.periodo-incidencias>* {
+    width: 200px;
+    max-width: 100%;
+}
+
+.justificaciones .buscador {
+    max-width: 440px;
+}
+
+.resumen-incidencias {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.resumen-incidencias article {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+    background: var(--fondo-tarjeta);
+    border: 1px solid var(--linea);
+    border-radius: 24px;
+    box-shadow: inset 0 3px 0 var(--acento);
+}
+
+.resumen-incidencias svg {
+    color: var(--acento-texto);
+    flex-shrink: 0;
+}
+
+.resumen-incidencias span {
+    color: var(--secundario);
+    font-size: .8125rem;
+}
+
+.resumen-incidencias strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+}
+
+.justificaciones td small {
+    display: block;
+    margin-top: 6px;
+    color: var(--secundario);
+}
+
+.formulario-justificacion {
+    padding: 22px;
+}
+.dialogo.dialogo-justificacion { background: var(--superficie); color: var(--texto); }
+.dialogo-justificacion .titulo-dialogo { border-bottom: 1px solid var(--linea); }
+.formulario-justificacion .acciones-dialogo {
+    position: sticky;
+    bottom: -22px;
+    margin: 24px -22px -22px;
+    padding: 18px 22px;
+    background: var(--superficie);
+    border-top: 1px solid var(--linea);
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.formulario-justificacion .nota { line-height: 1.6; }
+.formulario-justificacion :is(input, textarea):focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.formulario-justificacion label {
+    display: block;
+    margin-top: 18px;
+    font-size: .875rem;
+}
+
+.formulario-justificacion :is(input, textarea) {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.formulario-justificacion textarea {
+    resize: vertical;
+}
+
+.contexto-incidencia {
+    display: grid;
+    gap: 8px;
+    padding: 18px;
+    border-radius: 18px;
+    background: var(--suave);
+}
+
+.contexto-incidencia>span {
+    color: var(--secundario);
+    font-size: .8125rem;
+}
+
+.contexto-incidencia>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: .875rem;
+}
+
+.sustento-incidencia {
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    padding: 18px;
+    margin: 18px 0;
+    overflow-wrap: anywhere;
+}
+
+.sustento-incidencia h3 {
+    margin-top: 16px;
+    font-size: .9375rem;
+}
+
+.sustento-incidencia p {
+    font-size: .875rem;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+@media(max-width: 700px) {
+    .resumen-incidencias {
+        grid-template-columns: 1fr;
+    }
+
+    .periodo-incidencias>* {
+        flex: 1 1 140px;
+    }
+
+    .formulario-justificacion {
+        padding: 18px;
+    }
+    .formulario-justificacion .acciones-dialogo {
+        bottom: -18px;
+        margin: 24px -18px -18px;
+        padding: 16px 18px;
+    }
+
+    .justificaciones .buscador {
+        max-width: none;
+    }
+}

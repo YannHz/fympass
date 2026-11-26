@@ -1,0 +1,17 @@
+[Unit]
+Description=Respaldo cifrado de FyM Pass en Google Drive
+After=network-online.target mariadb.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=fym-pass
+Group=fym-pass
+WorkingDirectory=/opt/fym-pass/backend
+EnvironmentFile=/etc/fym-pass/respaldo.env
+ExecStart=/opt/fym-pass/backend/.venv/bin/python -B -m aplicacion.respaldo_drive
+TimeoutStartSec=30min
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/fym-pass/backend/archivos/respaldos /etc/fym-pass

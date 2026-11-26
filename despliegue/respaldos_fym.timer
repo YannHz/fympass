@@ -1,0 +1,11 @@
+[Unit]
+Description=Respaldo diario de FyM Pass
+
+[Timer]
+OnCalendar=*-*-* 07:00:00 UTC
+RandomizedDelaySec=10min
+Persistent=true
+Unit=respaldos_fym.service
+
+[Install]
+WantedBy=timers.target

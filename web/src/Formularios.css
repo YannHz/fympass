@@ -1,0 +1,73 @@
+.dialogo:not(.expediente) {
+  background: var(--superficie);
+  color: var(--texto);
+}
+.dialogo > .titulo-dialogo {
+  border-bottom: 1px solid var(--linea);
+}
+.dialogo .acciones-dialogo {
+  position: static;
+  bottom: auto;
+  margin: 24px 0 0;
+  padding: 18px 0 0;
+  background: transparent;
+  border-top: 1px solid var(--linea);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dialogo .formulario-gestion {
+  padding: 24px;
+}
+.formulario-gestion .campos-formulario {
+  align-items: start;
+  gap: 22px 20px;
+}
+.formulario-gestion .campo small {
+  font-weight: 400;
+  line-height: 1.5;
+}
+.formulario-gestion .campo-booleano {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formulario-gestion .campo-booleano .opcion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+}
+.formulario-gestion .aviso.informativo {
+  margin: 0 0 24px;
+  padding: 14px 16px;
+  background: var(--suave);
+  color: var(--secundario);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.formulario-gestion input[readonly] {
+  background: var(--fondo);
+  border-style: dashed;
+  color: var(--secundario);
+}
+.formulario-gestion .configuracion-avanzada {
+  padding-top: 18px;
+  border-top: 1px solid var(--linea);
+  margin-top: 24px;
+}
+.formulario-gestion .configuracion-avanzada > summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.formulario-gestion .campo :is(input, textarea):focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+@media(max-width:600px) {
+  .dialogo .formulario-gestion { padding: 18px; }
+  .formulario-gestion .campos-formulario { grid-template-columns: 1fr; }
+  .dialogo .acciones-dialogo button { flex: 1 1 160px; }
+}

@@ -1,0 +1,25 @@
+fympass.example.org {
+    encode zstd gzip
+
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy strict-origin-when-cross-origin
+        Strict-Transport-Security "max-age=31536000"
+    }
+
+    @api path /api /api/*
+    handle @api {
+        reverse_proxy 127.0.0.1:8000
+    }
+
+    handle {
+        root * /opt/fym-pass/web/dist
+        try_files {path} /index.html
+        file_server
+    }
+
+    header /service-worker.js Cache-Control "no-cache"
+    header /index.html Cache-Control "no-cache"
+}

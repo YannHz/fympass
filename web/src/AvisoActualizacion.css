@@ -1,0 +1,31 @@
+.aviso-actualizacion {
+  position: fixed;
+  z-index: 90;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 12px 14px 12px 22px;
+  border: 1px solid var(--linea);
+  border-radius: 24px;
+  background: var(--superficie);
+  color: var(--texto);
+  box-shadow: 0 8px 32px #0003;
+}
+.aviso-actualizacion span { font-size: 14px; line-height: 1.5; }
+.aviso-actualizacion button { flex-shrink: 0; min-height: 44px; padding: 10px 18px; }
+body:has(dialog[open]) .aviso-actualizacion { visibility: hidden; }
+@media (max-width: 900px) {
+  body:has(.navegacion-movil) .aviso-actualizacion {
+    bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  }
+}
+@media (max-width: 380px) {
+  .aviso-actualizacion { gap: 12px; padding-left: 16px; border-radius: 20px; }
+  .aviso-actualizacion button { padding-inline: 12px; }
+}

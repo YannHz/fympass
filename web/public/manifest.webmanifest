@@ -1,0 +1,17 @@
+{
+  "id": "/",
+  "name": "FyM Pass",
+  "short_name": "FyM Pass",
+  "description": "Asistencia y carnet institucional de Finney Miller",
+  "lang": "es-PE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f2f2f7",
+  "theme_color": "#003397",
+  "icons": [
+    { "src": "/iconos/instituto-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/iconos/instituto-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/iconos/instituto-seguro-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

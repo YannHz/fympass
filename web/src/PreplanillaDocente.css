@@ -1,0 +1,152 @@
+.periodo-preplanilla {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.periodo-preplanilla>* {
+    width: 220px;
+    max-width: 100%;
+}
+
+.resumen-preplanilla {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 24px;
+}
+
+.resumen-preplanilla strong {
+    font-variant-numeric: tabular-nums;
+}
+
+.preplanilla-docente .tabla-contenedor small {
+    display: block;
+    margin-top: 5px;
+    color: var(--secundario);
+}
+
+.tardanza-destacada {
+    color: var(--atencion);
+}
+
+.resumen-tardanza {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background: var(--suave);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 18px 0;
+}
+
+.resumen-tardanza>svg {
+    color: var(--acento-texto);
+    flex-shrink: 0;
+}
+
+.resumen-tardanza p {
+    color: var(--secundario);
+    margin: 7px 0 0;
+}
+
+.estimacion-docente {
+    border-top: 1px solid var(--linea);
+    margin-top: 24px;
+    padding-top: 18px;
+}
+
+.estimacion-docente summary {
+    cursor: pointer;
+    min-height: 44px;
+    align-content: center;
+    font-weight: 600;
+}
+
+@media(max-width: 800px) {
+    .resumen-preplanilla {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .periodo-preplanilla>* {
+        width: 100%;
+    }
+}
+
+.resumen-preplanilla article {
+    --color-indicador: var(--acento-texto);
+    --franja-indicador: var(--acento);
+    box-shadow: inset 0 3px 0 var(--franja-indicador), 0 10px 36px #00000009;
+}
+
+.resumen-preplanilla article[data-tono='tardanza'] {
+    --color-indicador: var(--atencion);
+    --franja-indicador: var(--advertencia);
+}
+
+.resumen-preplanilla article[data-tono='revision'] {
+    --color-indicador: var(--acento-texto);
+    --franja-indicador: var(--indigo);
+}
+
+.resumen-preplanilla article strong {
+    color: var(--color-indicador);
+}
+
+.titulo-indicador-docente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secundario);
+}
+
+.titulo-indicador-docente svg {
+    color: var(--color-indicador);
+    flex-shrink: 0;
+}
+
+.minutos-docente,
+.observacion-docente {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: .8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.con-tardanza,
+.salida-docente {
+    color: var(--atencion);
+    background: var(--fondo-atencion);
+}
+
+.sin-tardanza {
+    color: var(--bien);
+    background: var(--fondo-bien);
+}
+
+.falta-docente {
+    color: var(--alerta);
+    background: var(--fondo-alerta);
+}
+
+.observacion-docente {
+    margin: 3px 6px 3px 0;
+}
+
+.estimacion-docente summary {
+    color: var(--acento-texto);
+}
+
+@media (forced-colors: active) {
+    .resumen-preplanilla article {
+        border-color: CanvasText;
+    }
+
+    .minutos-docente,
+    .observacion-docente {
+        border: 1px solid CanvasText;
+    }
+}

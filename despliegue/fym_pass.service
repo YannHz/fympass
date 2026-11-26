@@ -1,0 +1,24 @@
+[Unit]
+Description=API de FyM Pass
+After=network-online.target mariadb.service
+Wants=network-online.target
+Requires=mariadb.service
+
+[Service]
+Type=simple
+User=fym-pass
+Group=fym-pass
+WorkingDirectory=/opt/fym-pass/backend
+ExecStart=/opt/fym-pass/backend/.venv/bin/python -B -m uvicorn aplicacion.main:aplicacion --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips 127.0.0.1
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/fym-pass/backend/archivos
+
+[Install]
+WantedBy=multi-user.target

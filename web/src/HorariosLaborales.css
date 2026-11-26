@@ -1,0 +1,73 @@
+.acciones-clave-inicial { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:24px; }
+.separador-personal { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-bottom:28px; }
+.horarios-laborales .separador-personal button { justify-content:flex-start; text-align:left; gap:14px; padding:18px; border:1px solid var(--linea); border-radius:18px; color:var(--texto); background:var(--superficie); }
+.horarios-laborales .separador-personal button[aria-pressed=true] { border-color:var(--acento); color:var(--acento); background:var(--suave); box-shadow:inset 0 0 0 1px var(--acento); }
+.separador-personal small { font-weight:400; margin-top:5px; }
+.cabecera-tarjeta-horario { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+.turno-horario { font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; background:var(--suave); color:var(--acento); }
+@media(max-width:540px) { .separador-personal { grid-template-columns:1fr; } }
+.dialogo.dialogo-horario-directo,
+.dialogo.dialogo-asignacion-laboral { width:min(760px,calc(100vw - 32px)); background:var(--superficie); color:var(--texto); }
+.dialogo-horario-directo .formulario-gestion,
+.dialogo-asignacion-laboral .revision-excepciones { padding:24px; }
+.dialogo-horario-directo .campos-formulario { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; }
+.dialogo-horario-directo .campo > fieldset > legend { margin-bottom:12px; }
+.dialogo .ingreso-directo .dias-configurables { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; }
+.dialogo .ingreso-directo .dias-configurables button { min-width:0; min-height:44px; padding:8px 4px; background:var(--suave); color:var(--texto); border:1px solid var(--linea); box-shadow:none; }
+.dialogo .ingreso-directo .dias-configurables button[aria-pressed=true] { background:var(--acento); color:var(--sobre-acento); border-color:var(--acento); }
+.dialogo .ingreso-directo .dias-configurables button[aria-pressed=false]:hover { background:var(--suave); color:var(--acento); border-color:var(--acento); }
+.dialogo .ingreso-directo .dias-configurables button:focus-visible { outline:3px solid var(--acento); outline-offset:3px; }
+.cabecera-horas-laborales { display:grid; grid-template-columns:90px minmax(0,1fr) minmax(0,1fr); gap:12px; padding:8px 12px; color:var(--secundario); font-size:12px; font-weight:600; }
+.dialogo .ingreso-directo .campo-hora { padding:12px; background:var(--suave); border:1px solid var(--linea); border-radius:14px; }
+.dialogo .ingreso-directo .campo-hora > span { font-size:13px; font-weight:600; }
+.dialogo .ingreso-directo .selector-hora { display:flex; align-items:center; gap:3px; width:100%; min-width:0; }
+.dialogo .ingreso-directo .selector-hora > .selector-filtro { flex:1 1 0; width:0; min-width:0; }
+.dialogo .ingreso-directo .selector-hora > .selector-filtro:last-child { flex:1.35 1 0; }
+.dialogo .ingreso-directo .selector-hora .selector-filtro-control { width:100%; min-width:0; padding:8px 3px; min-height:44px; justify-content:center; }
+.dialogo .ingreso-directo .selector-hora .selector-filtro-control > span { flex:0 1 auto; }
+.dialogo-asignacion-laboral .revision-excepciones { display:grid; gap:18px; }
+.dialogo-asignacion-laboral .revision-excepciones > p { margin:0; }
+.dialogo-asignacion-laboral .identidad-horario-asignacion { font-size:18px; }
+.dialogo-asignacion-laboral .revision-excepciones > label { display:grid; gap:8px; }
+.dialogo-asignacion-laboral .lista-excepciones { display:grid; gap:8px; max-height:340px; overflow:auto; padding:4px; }
+.dialogo-asignacion-laboral .lista-excepciones > label { display:flex; align-items:center; gap:14px; padding:14px; border:1px solid var(--linea); border-radius:12px; background:var(--superficie); cursor:pointer; }
+.dialogo-asignacion-laboral .lista-excepciones > label[data-seleccionado=true] { border-color:var(--acento); background:var(--suave); }
+.dialogo-asignacion-laboral .lista-excepciones input { flex:0 0 20px; margin:0; }
+.dialogo-asignacion-laboral .lista-excepciones strong { display:block; font-size:14px; font-weight:600; }
+.dialogo-asignacion-laboral .lista-excepciones small { margin-top:4px; font-weight:400; }
+.dialogo-asignacion-laboral .acciones-dialogo,
+.dialogo-horario-directo .acciones-dialogo { display:flex; flex-wrap:wrap; gap:12px; padding:18px 0 0; margin-top:8px; position:static; background:transparent; border-top:1px solid var(--linea); }
+@media(max-width:600px) {
+ .dialogo-horario-directo .formulario-gestion, .dialogo-asignacion-laboral .revision-excepciones { padding:16px; }
+ .dialogo .ingreso-directo .dias-configurables { gap:4px; }
+ .cabecera-horas-laborales { grid-template-columns:70px minmax(0,1fr) minmax(0,1fr); gap:8px; }
+ .dialogo .ingreso-directo .campo-hora { grid-template-columns:70px minmax(0,1fr) minmax(0,1fr); gap:8px; padding:8px; }
+ .dialogo .ingreso-directo .campo-hora > span { grid-column:auto; }
+ .dialogo .ingreso-directo .selector-hora { flex-wrap:wrap; }
+ .dialogo .ingreso-directo .selector-hora > .selector-filtro:last-child { flex:1 1 100%; }
+}
+.tarjetas-laborales { display:grid; grid-template-columns:1fr; gap:12px; }
+.horario-laboral { min-width:0; padding:20px; border:1px solid var(--linea); border-radius:18px; background:var(--fondo-tarjeta); display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:24px; align-items:start; }
+.horario-laboral .cabecera-tarjeta-horario { grid-column:1; margin-bottom:8px; justify-content:flex-start; }
+.horario-laboral h3, .horario-laboral > p, .horario-laboral > details { grid-column:1; }
+.horario-laboral > p { margin:0 0 8px; }
+.horario-laboral .acciones { grid-column:2; grid-row:1 / span 4; align-self:center; margin:0; padding:0; border:0; }
+.horario-laboral summary { color:var(--acento-texto); font-size:13px; display:list-item; padding-block:10px; }
+.horarios-laborales .separador-personal button { padding:12px 16px; }
+.horarios-laborales .separador-personal small { display:none; }
+.horario-laboral h3 { margin-bottom:12px; }
+.semana-laboral { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin:20px 0; }
+.semana-laboral span { text-align:center; font-size:12px; padding:9px 0; border-radius:8px; color:var(--secundario); background:var(--suave); }
+.semana-laboral span[data-activo=true] { background:var(--acento); color:var(--sobre-acento); font-weight:600; }
+.horario-laboral summary { cursor:pointer; min-height:44px; }
+.horario-laboral li { margin:12px 0; }
+.horario-laboral .acciones { display:flex; flex-wrap:wrap; gap:12px; margin:0; padding:0; border:0; }
+.ingreso-directo .dias-configurables { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+.ingreso-directo .horas-ingreso-grupo { display:grid; gap:12px; }
+.ingreso-directo .campo-hora { display:grid; grid-template-columns:90px minmax(0,1fr) minmax(0,1fr); gap:12px; align-items:center; }
+@media(max-width:540px) {
+ .horario-laboral { padding:16px; grid-template-columns:minmax(0,1fr); }
+ .horario-laboral .acciones { grid-column:1; grid-row:auto; margin-top:12px; justify-content:flex-start; }
+ .ingreso-directo .campo-hora { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+ .ingreso-directo .campo-hora > span { grid-column:1/-1; }
+}
